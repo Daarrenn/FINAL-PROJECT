@@ -16,6 +16,11 @@ int countdown = 180;
 float onex, oney, onevx, onevy, oned;
 float twox, twoy, twovx, twovy, twod;
 
+
+//spike right);
+float rightoney;
+float righttwoy;  
+  
 void setup() {
   size(600, 800);
   mode = GAME;
@@ -23,8 +28,8 @@ void setup() {
   
   
   //gravity
-  grav = 2;
-  gravtwo = 2;
+  grav = -2;
+  gravtwo = -2;
   
   //one
   onex = width/2;
@@ -38,6 +43,10 @@ void setup() {
   twovx = -2;
   twod = 80;
   
+  //spike
+  rightoney = height/2;
+  righttwoy = height/2;
+
 
 }
 

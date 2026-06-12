@@ -1,9 +1,19 @@
 void game() {
   background(0);
   
-  
+  //birds(?)
   circle(onex, oney, oned);
   circle(twox, twoy, twod);
+  
+  //attempting spike
+  rightoney = rightoney + 3;
+  spike(rightoney, 3);
+  spikeright(width, rightoney);
+
+  
+  //spike movement
+
+  
   
   //counting
   countdown = countdown - 1;
@@ -21,16 +31,16 @@ void game() {
   
   if (countdown < 0) {
   //accerleration
-  grav = grav - 0.2;
-  gravtwo = gravtwo - 0.2;
+  grav = grav + 0.2;
+  gravtwo = gravtwo + 0.2;
   
   //move one
   onex = onex + onevx;
-  oney = oney + onevy - grav;
+  oney = oney + onevy + grav;
   
   //move two
   twox = twox + twovx;
-  twoy = twoy + twovy - gravtwo;
+  twoy = twoy + twovy + gravtwo;
   }
   //top bottom walls
     //top bottom walls
@@ -45,9 +55,26 @@ void game() {
 
 void keyPressed(){
  if(key == 'w' ||key  == 'W') {
-   onevy = -8;
-   grav = -2;
+   onevy = -9;
+   grav = 3;
  }
- if(keyCode == UP) upkey = true;
- 
+ if(keyCode == UP) {
+   twovy = -9;
+   gravtwo = 3;
+}
+}
+
+void spikeright(float x, float y) {
+  pushMatrix();
+  translate(x, y);
+  fill(255);
+  triangle(0, 25, 0, -25, -50, 0);
+  popMatrix();
+}
+
+void spike(float variable, float speed) {
+  variable = variable + speed;
+    if(variable < 0 || variable > height) {
+    variable = variable * -1;
+  }
 }
